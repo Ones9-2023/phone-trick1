@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>City Post — News-Style Article</title>
+  <meta name="description" content="News-looking article layout with navigation, headline, byline, hero image, sections, quote, and CTA." />
+  <meta property="og:title" content="3-Click ‘Phone Trick’ — City Post" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="A clean, realistic news-style layout you can adapt for any topic." />
+  <meta property="og:image" content="assets/hero-above-the-fold.jpg" />
+  <style>
+    /* ————— Base + Theme ————— */
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#1f2937;
+      --accent-visited:#111827;
+    }
+    html{box-sizing:border-box}
+    *,*::before,*::after{box-sizing:inherit}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height:1.6; font-size:18px;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .sans{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"}
+    a{color:var(--accent); text-decoration:underline;}
+    a:visited{color:var(--accent-visited)}
+    .container{max-width: 920px; margin: 0 auto; padding: 0 20px}
+    .topbar{border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:20}
+    .brand{display:flex; align-items:center; gap:.75rem; padding:12px 0}
+    .brand__logo{width:auto; height:32px}
+    .brand__name{font-weight:800; letter-spacing:.5px}
+    .nav{display:flex; gap:1.25rem; flex-wrap:wrap; padding:8px 0 14px 0; font-size:14px}
+    .nav a{color:#111; text-decoration:none}
+    .nav a:hover{text-decoration:underline}
+    article{max-width:720px; margin:36px auto}
+    h1{font-size: clamp(32px, 5vw, 46px); line-height:1.1; margin:.2em 0 .4em}
+    .dek{font-size:20px; color:#374151; margin:-6px 0 18px;}
+    .meta{display:flex; align-items:center; gap:.6rem; color:var(--muted)}
+    .meta img{width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid var(--line)}
+    .meta .dot{width:4px; height:4px; background:var(--muted); border-radius:999px; display:inline-block}
+    figure{margin:26px 0;}
+    .hero{width:100%; aspect-ratio: 16 / 9; border-radius:12px; overflow:hidden; border:1px solid var(--line);
+      display:block; object-fit:cover; background:#f3f4f6;}
+    p{margin:1em 0}
+    .subhead{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-weight:700; font-size:20px; margin:1.6em 0 .6em}
+    blockquote{margin:1.2em 0; padding:1em 1.2em; border-left:4px solid #d1d5db; background:#f9fafb; border-radius:8px}
+    blockquote footer{margin-top:.5em; color:var(--muted); font-size:14px}
+    .cta{margin:1.6em 0; padding:16px 18px; background:#f8fafc; border:1px solid var(--line); border-radius:12px}
+    .cta a{font-weight:700; text-decoration:none}
+    .cta a:hover{text-decoration:underline}
+    .at-a-glance{border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:#fbfdff; font-size:16px;}
+    .at-a-glance h3{margin:0 0 .4em; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-size:16px}
+    .at-a-glance ul{margin:.5em 0 0 1.2em}
+    .sponsored{display:inline-flex; align-items:center; gap:.4em; font: 600 12px ui-sans-serif, system-ui; color:#6b7280; text-transform:uppercase; letter-spacing:.08em}
+    .badge{padding:2px 6px; border:1px solid var(--line); border-radius:999px; background:#f9fafb}
+    .hide{display:none}
+    footer{border-top:1px solid var(--line); margin:48px 0 24px; padding-top:18px; color:var(--muted)}
+    @media print{.topbar, .cta{display:none} body{font-size:12pt} article{max-width:100%; margin:0}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand sans">
+        <img class="brand__logo" src="assets/city-post-logo.svg" alt="City Post logo" />
+        <div class="brand__name">City Post</div>
+        <span class="sponsored badge hide">Advertorial</span>
+      </div>
+      <nav class="nav sans" aria-label="Primary">
+        <a href="#">BUSINESS</a><a href="#">OPINION</a><a href="#">WORLD</a><a href="#">CULTURE</a><a href="#">TECH</a><a href="#">SPORT</a><a href="#">PUZZLES</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <article itemscope itemtype="https://schema.org/NewsArticle">
+      <h1 itemprop="headline">2025: 3-Click “Phone Trick” Is Clearing People's Debts All Over The Country!</h1>
+      <p class="dek sans">A simple, step-by-step method — doable from any smartphone — is drawing attention from everyday users and experts alike.</p>
+      <div class="meta sans" aria-label="Byline and date">
+        <img src="assets/editor-photo.jpg" alt="Sarah Lewis" onerror="this.style.display='none'">
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">By Sarah Lewis</span></span>
+        <span class="dot"></span>
+        <time itemprop="datePublished" datetime="2025-01-16">January 16, 2025</time>
+      </div>
+      <figure>
+        <img class="hero" src="assets/hero-above-the-fold.jpg" alt="Phone on a desk (illustrative)" />
+        <figcaption class="sans" style="color:#6b7280; font-size:14px; margin-top:8px">A simple phone-based method is making waves online.</figcaption>
+      </figure>
+      <p>In a surprising twist that’s spreading across social feeds, a little-known smartphone method is reportedly helping ordinary people achieve meaningful results in record time — and it all comes down to a straightforward, three-click routine.</p>
+      <p>Early adopters say the approach can be done from anywhere in minutes and doesn’t require special equipment or technical know-how. According to informal tallies from several online communities, thousands have tried the method already — with many reporting outcomes they never thought possible.</p>
+      <div class="at-a-glance" role="note" aria-label="At a glance">
+        <h3>At a glance</h3>
+        <ul><li>3 simple taps from any modern smartphone</li><li>Takes about 60 seconds to set up</li><li>No special apps or subscriptions required</li></ul>
+      </div>
+      <h2 class="subhead">Why experts are paying attention</h2>
+      <p>Specialists point to a mix of habit design and smart phone features that make the routine both easy to start and easy to stick with. By removing friction and focusing on visible quick wins, the method encourages daily use — which many say is the real secret to its impact.</p>
+      <h2 class="subhead">The surprising idea behind it</h2>
+      <p>Rather than relying on complicated tools, the approach uses settings most phones already have. The three clicks are designed to trigger a focused sequence: set a cue, remove a distraction, and lock in a tiny action that compounds over time.</p>
+      <blockquote>“I didn’t believe it at first,” said Lena R., a London-based freelancer. “But after a week of trying it, the results were hard to ignore.”<footer>— User testimonial</footer></blockquote>
+      <h2 class="subhead">How to try it yourself</h2>
+      <p>If you’re curious about the exact steps, a full walkthrough is available below. It explains the three taps, where to find them on iPhone and Android, and the common mistakes to avoid.</p>
+      <div class="cta"><p class="sans" style="margin:0">Want the step-by-step breakdown? <a href="#" rel="nofollow">Click here to see the 3-Click Phone Trick →</a></p></div>
+      <footer><p class="sans">Note: This page is for informational purposes and may reference partner content. Results vary. Always use caution and do your own research.</p></footer>
+    </article>
+  </main>
+</body>
+</html>
